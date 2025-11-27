@@ -3,90 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Indexly — Nie wieder Mietpreiserhöhungen verpassen</title>
+  <title>Indexly — Nie wieder VPI bedingte Mietpreiserhöhungen verpassen.</title>
   <meta name="description" content="Indexly überwacht Gewerbemietverträge und schützt vor VPI-Fehlern.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a class="logo" href="#">Indexly</a>
 
       <nav class="nav-desktop" aria-label="Hauptnavigation">
-        <a href="#features" class="nav-link">Alles auf einen Blick</a>
-        <a href="#überuns" class="nav-link">Über uns</a>
-        <a href="#kontakt" class="nav-link">Kontakt</a>
+        <a class="nav-link" href="#features">Alles auf einen Blick</a>
+        <a class="nav-link" href="#überuns">Über uns</a>
+        <a class="nav-link" href="#kontakt">Kontakt</a>
+        <button class="btn btn-mobile" id="mobileMenuToggle">Menu</button>
       </nav>
 
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menü öffnen">
-        ☰
-      </button>
-
-      <a href="#" class="btn btn-primary">Jetzt starten</a>
     </div>
 
-    <!-- Mobile nav overlay -->
     <div id="mobileNav" class="nav-mobile" aria-hidden="true">
       <div class="nav-mobile-inner">
-        <a href="#features" class="nav-link" data-close>Alles auf einen Blick</a>
-        <a href="#überuns" class="nav-link" data-close>Über uns</a>
-        <a href="#kontakt" class="nav-link" data-close>Kontakt</a>
-        <button class="btn btn-primary" style="width:100%; margin-top:8px;" data-close>Jetzt starten</button>
+        <a class="nav-link" href="#features" data-close>Alles auf einen Blick</a>
+        <a class="nav-link" href="#überuns" data-close>Über uns</a>
+        <a class="nav-link" href="#kontakt" data-close>Kontakt</a>
+        <button class="btn btn-primary" data-close>Jetzt starten</button>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero section" id="hero">
-      <div class="parallax" aria-hidden="true">
-        <div class="parallax__layer back" data-speed="0.08"></div>
-        <div class="parallax__layer mid" data-speed="0.18"></div>
-      </div>
+  <script>
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
 
+    mobileMenuToggle.addEventListener('click', () => {
+      const isHidden = mobileNav.getAttribute('aria-hidden') === 'true';
+      mobileNav.setAttribute('aria-hidden', !isHidden);
+      mobileNav.style.display = isHidden ? 'block' : 'none';
+    });
+
+    document.querySelectorAll('[data-close]').forEach(item => {
+      item.addEventListener('click', () => {
+        mobileNav.setAttribute('aria-hidden', 'true');
+        mobileNav.style.display = 'none';
+      });
+    });
+  </script>
+
+  <main>
+    <section id="hero" class="hero section">
       <div class="container hero-inner">
-        <h1 class="hero-title">Nie wieder Umsatz verlieren durch VPI‑Fehler</h1>
-        <p class="subtitle">Indexly überwacht Ihre Gewerbemietverträge automatisch, stellt VPI‑Basisjahre um und sorgt für maximale Einnahmen — ohne manuellen Aufwand.</p>
+        <h1 class="hero-title">Nie wieder VPI‑bedingte Mietpreiserhöhungen verpassen.</h1>
+        <p class="subtitle">Indexly überwacht Ihre Gewerbemietverträge automatisch, stellt VPI‑Basisjahre um und sorgt für maximale Einnahmen <br> — ohne manuellen Aufwand.</p>
 
         <div class="hero-cta">
-          <a href="#" class="btn btn-primary btn-large">Kostenlos testen</a>
-          <a href="#kontakt" class="btn btn-ghost">Kontakt</a>
-        </div>
-        <p class="small-note">Jetzt für die kostenlose Pilotphase bewerben</p>
-      </div>
-    </section>
-
-    <section id="features" class="section features">
-      <div class="container">
-        <h2>Alles auf einen Blick</h2>
-        <div class="feature-grid" id="featureGrid">
-          <article class="feature-card" data-animate>
-            <div class="feature-icon" aria-hidden="true">
-              <!-- simple SVG icon -->
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 6h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.4"/></svg>
-            </div>
-            <h3 class="feature-title">Automatische VPI‑Umstellung</h3>
-            <p class="feature-desc">Automatischer Wechsel des Basisjahres — keine manuellen Fehler, sofort korrekt abgerechnet.</p>
-            <div class="feature-meta">Sicher • Vollautomatisch • Audit‑Trail</div>
-          </article>
-
-          <article class="feature-card" data-animate>
-            <div class="feature-icon" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" opacity="0.9"/></svg>
-            </div>
-            <h3 class="feature-title">Echtzeit‑Überwachung</h3>
-            <p class="feature-desc">Tägliche Prüfungen mit Benachrichtigungen bei Abweichungen — reagieren, bevor es teuer wird.</p>
-            <div class="feature-meta">Alerts • Dashboards • Integrationen</div>
-          </article>
-
-          <article class="feature-card" data-animate>
-            <div class="feature-icon" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M12 4v16" stroke="currentColor" stroke-width="1.6"/><path d="M4 12h16" stroke="currentColor" stroke-width="1.6" opacity="0.8"/></svg>
-            </div>
-            <h3 class="feature-title">Maximierter ROI</h3>
-            <p class="feature-desc">Weniger Verwaltungsaufwand, bessere Abrechnungen — sofort sichtbare Erträge.</p>
-            <div class="feature-meta">Skalierbar • Messbar • Transparent</div>
-          </article>
+          <a class="btn btn-primary btn-large" href="#">5 Pilotkunden gesucht - jetzt kostenfrei testen.</a>
         </div>
       </div>
     </section>
@@ -94,141 +64,23 @@
     <section id="überuns" class="section about">
       <div class="container">
         <h2>Über Indexly</h2>
-        <p class="lead">Wir helfen Gewerbeimmobilienmanagern, keine Umsatz‑Potentiale mehr zu verlieren. Einfach. Sicher. Automatisiert.</p>
-      </div>
+      
     </section>
-
-    <section id="kontakt" class="section contact">
-      <div class="container">
-        <h2>Kontakt</h2>
-
-        <form id="contactForm" class="contact-form" novalidate>
-          <div class="form-row">
-            <label class="field">
-              <span class="label-text">Name</span>
-              <input name="name" type="text" required maxlength="100" />
-            </label>
-            <label class="field">
-              <span class="label-text">E‑Mail</span>
-              <input name="email" type="email" required maxlength="120" />
-            </label>
-          </div>
-
-          <label class="field full">
-            <span class="label-text">Betreff</span>
-            <input name="subject" type="text" maxlength="150" />
-          </label>
-
-          <label class="field full">
-            <span class="label-text">Nachricht</span>
-            <textarea name="message" rows="6" required maxlength="3000"></textarea>
-          </label>
-
-          <!-- Honeypot -->
-          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
-
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Nachricht senden</button>
-            <div id="contactStatus" class="form-status" aria-live="polite"></div>
-          </div>
-
-          <p class="small-note neutral">Ohne Backend öffnet das Absenden Ihr Mailprogramm (mailto). Für automatische Zustellung nutze Formspree/EmailJS.</p>
-        </form>
-      </div>
-    </section>
-  </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
         <div class="brand">© Indexly 2025</div>
-        <nav class="footer-nav">
-          <a href="#features">Features</a>
-          <a href="#kontakt">Kontakt</a>
-          <a href="#impressum">Impressum</a>
-        </nav>
+       
       </div>
 
-      <!-- compact impressum block -->
-      <div class="footer-legal" id="impressum" style="margin-top:12px;">
-        <p class="legal-line">Indexly GmbH • Musterstraße 12 • 10115 Musterstadt</p>
-        <p class="legal-line">E‑Mail: <a href="mailto:kontakt@indexly.eu">kontakt@indexly.eu</a> • Handelsregister: HRB 000000 • USt‑ID: DE000000000</p>
+      <div class="footer-legal" id="impressum">
+        <p>Julian Gräfen </p>
+        <p>Pfarrer-Reinartz-Str. 11</p>
+       <p>53925 Kall</p> 
+        <p>E‑Mail: <a href="mailto:kontakt@indexly.eu">kontakt@indexly.eu</a>
       </div>
     </div>
   </footer>
-
-  <script>
-  // Mobile nav toggle & accessible overlay
-  (function () {
-    const toggle = document.getElementById('navToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    function setOpen(open) {
-      toggle.setAttribute('aria-expanded', String(Boolean(open)));
-      mobileNav.setAttribute('aria-hidden', String(!open));
-      document.body.classList.toggle('nav-open', open);
-    }
-    toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') === 'false'));
-    mobileNav?.addEventListener('click', (e) => {
-      if (e.target.matches('[data-close]') || e.currentTarget === e.target) setOpen(false);
-    });
-    window.addEventListener('resize', () => setOpen(false));
-  })();
-
-  // Lightweight parallax — disabled on small screens and respecting reduced motion
-  (function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const isSmall = () => window.innerWidth <= 900;
-    if (isSmall()) return;
-    const layers = document.querySelectorAll('.parallax__layer');
-    if (!layers.length) return;
-    let lastScroll = 0;
-    function update() {
-      const scrolled = window.scrollY;
-      layers.forEach(l => {
-        const speed = parseFloat(l.dataset.speed) || 0.12;
-        l.style.transform = `translateY(${(scrolled * speed).toFixed(1)}px)`;
-      });
-    }
-    window.addEventListener('scroll', () => {
-      const now = window.scrollY;
-      if (Math.abs(now - lastScroll) > 3) { requestAnimationFrame(update); lastScroll = now; }
-    }, { passive: true });
-    update();
-  })();
-
-  // Contact form (mailto fallback)
-  document.getElementById('contactForm')?.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const statusEl = document.getElementById('contactStatus');
-    statusEl.textContent = '';
-    const fd = new FormData(this);
-    if (fd.get('website')) { statusEl.textContent = 'Fehler beim Absenden.'; return; }
-    if (!fd.get('name') || !fd.get('email') || !fd.get('message')) { statusEl.textContent = 'Bitte Pflichtfelder füllen.'; return; }
-    const to = 'kontakt@indexly.eu';
-    const subject = encodeURIComponent((fd.get('subject') || `Kontakt von ${fd.get('name')}`));
-    const body = encodeURIComponent(`Name: ${fd.get('name')}\nE-Mail: ${fd.get('email')}\n\n${fd.get('message')}`);
-    // Use location.href so mobile opens mail client — long messages may be truncated by URL limits
-    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-  });
-
-  // Reveal animations for feature-cards (mobile friendly + reduced motion safe)
-  (function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const cards = document.querySelectorAll('[data-animate]');
-    if (!('IntersectionObserver' in window)) {
-      cards.forEach(c => c.classList.add('reveal'));
-      return;
-    }
-    const obs = new IntersectionObserver((entries, o) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('reveal');
-          o.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.18 });
-    cards.forEach(c => obs.observe(c));
-  })();
-  </script>
 </body>
 </html>
