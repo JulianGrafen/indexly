@@ -1,153 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nie wieder Mietpreiserhöhungen verpassen</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Indexly — Nie wieder Mietpreiserhöhungen verpassen</title>
+  <meta name="description" content="Indexly überwacht Gewerbemietverträge und schützt vor VPI-Fehlern.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="header" id="site-header">
-        <div class="container">
-            <a href="#" class="logo">Indexly</a>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="#">Indexly</a>
 
-            <!-- mobile toggle -->
-            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Menü">
-                ☰ Menü
-            </button>
+      <nav class="nav-desktop" aria-label="Hauptnavigation">
+        <a href="#features" class="nav-link">Alles auf einen Blick</a>
+        <a href="#überuns" class="nav-link">Über uns</a>
+        <a href="#kontakt" class="nav-link">Kontakt</a>
+      </nav>
 
-            <nav class="nav" id="siteNav" aria-hidden="true">
-                <a href="#features" class="nav-item">Alles auf einen Blick</a>
-                <a href="#überuns" class="nav-item">Über uns</a>
-                <a href="#kontakt" class="nav-item">Kontakt</a>
-            </nav>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Menü öffnen">
+        ☰
+      </button>
 
-            <a href="#" class="btn btn-primary">Jetzt starten</a>
+      <a href="#" class="btn btn-primary">Jetzt starten</a>
+    </div>
+
+    <!-- Mobile nav overlay -->
+    <div id="mobileNav" class="nav-mobile" aria-hidden="true">
+      <div class="nav-mobile-inner">
+        <a href="#features" class="nav-link" data-close>Alles auf einen Blick</a>
+        <a href="#überuns" class="nav-link" data-close>Über uns</a>
+        <a href="#kontakt" class="nav-link" data-close>Kontakt</a>
+        <button class="btn btn-primary" style="width:100%; margin-top:8px;" data-close>Jetzt starten</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="hero">
+      <div class="parallax" aria-hidden="true">
+        <div class="parallax__layer back" data-speed="0.08"></div>
+        <div class="parallax__layer mid" data-speed="0.18"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <h1 class="hero-title">Nie wieder Umsatz verlieren durch VPI‑Fehler</h1>
+        <p class="subtitle">Indexly überwacht Ihre Gewerbemietverträge automatisch, stellt VPI‑Basisjahre um und sorgt für maximale Einnahmen — ohne manuellen Aufwand.</p>
+
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary btn-large">Kostenlos testen</a>
+          <a href="#kontakt" class="btn btn-ghost">Kontakt</a>
         </div>
-    </header>
-
-    <section class="hero">
-        <!-- Parallax-Layer (visuelle Background-Elemente) -->
-        <div class="parallax" aria-hidden="true">
-            <div class="parallax__layer parallax__layer--back" data-speed="0.12"></div>
-            <div class="parallax__layer parallax__layer--mid"  data-speed="0.28"></div>
-            <div class="parallax__layer parallax__layer--front" data-speed="0.45"></div>
-        </div>
-
-        <div class="container">
-            <h1>Indexly – Nie wieder Umsatz durch VPI-Fehler verlieren.</h1>
-            <p class="subtitle"> Tägliche Überwachung. 100% Compliance. Indexly sichert den maximalen ROI aus Ihren Gewerbemietverträgen. Wir automatisieren die monatliche Fristenkontrolle und lösen den größten Arbeitsaufwand im Gewerbemanagement: die automatische VPI-Basisjahres-Umstellung.</p>
-            <a href="#" class="btn btn-primary btn-large">Kostenlos testen</a>
-            <p class="small-text">Jetzt für die kostenlose Pilotphase bewerben</p>
-        </div>
+        <p class="small-note">Jetzt für die kostenlose Pilotphase bewerben</p>
+      </div>
     </section>
 
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Alles auf einen Blick</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Automatische VPI Mietpreisanpassungen
-                    </h3>
-                    <p>Indexly berechnet automatisch die Anpassungen deiner Gewerbemiete basierend auf dem Verbraucherpreisindex (VPI).</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Weniger Verwaltungsaufwand</h3>
-                    <p>Reduziere den Aufwand für die Verwaltung deiner Mietverträge durch automatisierte Prozesse und Erinnerungen.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Automatische Anpassung der Mietverträge</h3>
-                    <p>Indexly passt deine Mietverträge automatisch an die aktuellen gesetzlichen Vorgaben und Vereinbarungen an </p>
-                    </div>
-                <div class="feature-card">
-                    <h3>DSGVO Konform & Sicher</h3>
-                    </h3>
-                    <p>Deine Daten sind bei uns sicher und werden gemäß den DSGVO-Richtlinien geschützt.</p>
-                </div>
-            </div>
+    <section id="features" class="section features">
+      <div class="container">
+        <h2>Alles auf einen Blick</h2>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Automatische VPI‑Umstellung</h3>
+            <p>Wir übernehmen die Basisjahres‑Umstellung automatisch und schliessen manuelle Fehlerquellen aus.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Echtzeit Überwachung</h3>
+            <p>Tägliche Checks und Benachrichtigungen bei kritischen Änderungen — sofort handeln.</p>
+          </article>
+          <article class="feature-card feature-card--accent">
+            <h3>Maximierter ROI</h3>
+            <p>Weniger Verwaltungsaufwand, mehr Einnahmen — Ihre Betriebskosten sinken.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    
-    <section id="überuns" class="features">
-        <div class="container">
-            <h2>Über uns</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3></h3>
-                    <p>Indexly wurde von Julian Gräfen gegründet, einem erfahrenen Softwareentwickler mit einer Leidenschaft für innovative Lösungen im Immobilienbereich. Mit einem Hintergrund in Informatik und jahrelanger Erfahrung in der Entwicklung von Webanwendungen hat Julian die Vision, die Verwaltung von Gewerbemietverträgen zu revolutionieren.</p>
-            </div>
-        </div>
+    <section id="überuns" class="section about">
+      <div class="container">
+        <h2>Über Indexly</h2>
+        <p class="lead">Wir helfen Gewerbeimmobilienmanagern, keine Umsatz‑Potentiale mehr zu verlieren. Einfach. Sicher. Automatisiert.</p>
+      </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Indexly. Alle Rechte vorbehalten.</p>
-            <p>Impressum</p>
-            <p>Julian Gräfen</p>
-            <p>Pfarrer-Reinartz-Straße 11</p>
-            <p>53925 Kall</p>
-            <div class="footer-links">
-                <a href="#">Datenschutz</a>
-            </div>
-        </div>
-    </footer>
+    <section id="kontakt" class="section contact">
+      <div class="container">
+        <h2>Kontakt</h2>
 
-    <!-- Parallax script: leichtgewichtig, performant -->
-    <script>
-(function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const layers = document.querySelectorAll('.parallax__layer');
-  if (!layers.length) return;
-  let ticking = false;
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const scrolled = window.scrollY || window.pageYOffset;
-        layers.forEach(layer => {
-          const speed = parseFloat(layer.dataset.speed) || 0.2;
-          const y = scrolled * speed;
-          layer.style.transform = `translate3d(0, ${y}px, 0)`;
-        });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  // initial pos
-  onScroll();
-})();
-</script>
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-row">
+            <label class="field">
+              <span class="label-text">Name</span>
+              <input name="name" type="text" required maxlength="100" />
+            </label>
+            <label class="field">
+              <span class="label-text">E‑Mail</span>
+              <input name="email" type="email" required maxlength="120" />
+            </label>
+          </div>
 
-<!-- add small accessible nav toggle script near the end of body -->
-<script>
-  (function(){
+          <label class="field full">
+            <span class="label-text">Betreff</span>
+            <input name="subject" type="text" maxlength="150" />
+          </label>
+
+          <label class="field full">
+            <span class="label-text">Nachricht</span>
+            <textarea name="message" rows="6" required maxlength="3000"></textarea>
+          </label>
+
+          <!-- Honeypot -->
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Nachricht senden</button>
+            <div id="contactStatus" class="form-status" aria-live="polite"></div>
+          </div>
+
+          <p class="small-note neutral">Ohne Backend öffnet das Absenden Ihr Mailprogramm (mailto). Für automatische Zustellung nutze Formspree/EmailJS.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="brand">© Indexly 2025</div>
+        <nav class="footer-nav">
+          <a href="#features">Features</a>
+          <a href="#kontakt">Kontakt</a>
+          <a href="#">Impressum</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // Mobile nav toggle & accessible overlay
+  (function () {
     const toggle = document.getElementById('navToggle');
-    const header = document.getElementById('site-header');
-    const nav = document.getElementById('siteNav');
-
-    function setOpen(open){
+    const mobileNav = document.getElementById('mobileNav');
+    function setOpen(open) {
       toggle.setAttribute('aria-expanded', String(Boolean(open)));
-      nav.setAttribute('aria-hidden', String(!open));
-      header.classList.toggle('nav-open', Boolean(open));
-      // trap body scroll when open (mobile UX)
-      document.body.style.overflow = open ? 'hidden' : '';
+      mobileNav.setAttribute('aria-hidden', String(!open));
+      document.body.classList.toggle('nav-open', open);
     }
-
-    toggle?.addEventListener('click', ()=> {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      setOpen(!isOpen);
+    toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') === 'false'));
+    mobileNav?.addEventListener('click', (e) => {
+      if (e.target.matches('[data-close]') || e.currentTarget === e.target) setOpen(false);
     });
-
-    // close on outside click / resize
-    document.addEventListener('click', (e) => {
-      if (!header.contains(e.target) && header.classList.contains('nav-open')) setOpen(false);
-    });
-    window.addEventListener('resize', ()=> setOpen(false));
+    window.addEventListener('resize', () => setOpen(false));
   })();
-</script>
 
+  // Lightweight parallax — disabled on small screens and respecting reduced motion
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const isSmall = () => window.innerWidth <= 900;
+    if (isSmall()) return;
+    const layers = document.querySelectorAll('.parallax__layer');
+    if (!layers.length) return;
+    let lastScroll = 0;
+    function update() {
+      const scrolled = window.scrollY;
+      layers.forEach(l => {
+        const speed = parseFloat(l.dataset.speed) || 0.12;
+        l.style.transform = `translateY(${(scrolled * speed).toFixed(1)}px)`;
+      });
+    }
+    window.addEventListener('scroll', () => {
+      const now = window.scrollY;
+      if (Math.abs(now - lastScroll) > 3) { requestAnimationFrame(update); lastScroll = now; }
+    }, { passive: true });
+    update();
+  })();
+
+  // Contact form (mailto fallback)
+  document.getElementById('contactForm')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const statusEl = document.getElementById('contactStatus');
+    statusEl.textContent = '';
+    const fd = new FormData(this);
+    if (fd.get('website')) { statusEl.textContent = 'Fehler beim Absenden.'; return; }
+    if (!fd.get('name') || !fd.get('email') || !fd.get('message')) { statusEl.textContent = 'Bitte Pflichtfelder füllen.'; return; }
+    const to = 'kontakt@indexly.eu';
+    const subject = encodeURIComponent((fd.get('subject') || `Kontakt von ${fd.get('name')}`));
+    const body = encodeURIComponent(`Name: ${fd.get('name')}\nE-Mail: ${fd.get('email')}\n\n${fd.get('message')}`);
+    // Use location.href so mobile opens mail client — long messages may be truncated by URL limits
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+  });
+  </script>
 </body>
 </html>
