@@ -134,7 +134,7 @@ body{
     display:flex;
     align-items:center;           /* <-- zentriert vertikal */
     justify-content:center;       /* <-- zentriert horizontal */
-    min-height:74vh;
+    min-height:74vh;git 
     position:relative;
     overflow: hidden;           /* verhindert, dass Parallax-Shapes die nächsten Sektionen überlagern */
 }

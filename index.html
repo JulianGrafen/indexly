@@ -21,11 +21,18 @@
     </header>
 
     <section class="hero">
+        <!-- Parallax-Layer (visuelle Background-Elemente) -->
+        <div class="parallax" aria-hidden="true">
+            <div class="parallax__layer parallax__layer--back" data-speed="0.12"></div>
+            <div class="parallax__layer parallax__layer--mid"  data-speed="0.28"></div>
+            <div class="parallax__layer parallax__layer--front" data-speed="0.45"></div>
+        </div>
+
         <div class="container">
-            <h1>Nie wieder Mietpreiserhöhungen verpassen</h1>
-            <p class="subtitle">Indexly revolutioniert die Art und Weise, wie du auf deine Gewerbemietverträge zugreifst und sie verwaltest.</p>
+            <h1>Indexly – Nie wieder Umsatz durch VPI-Fehler verlieren.</h1>
+            <p class="subtitle"> Tägliche Überwachung. 100% Compliance. Indexly sichert den maximalen ROI aus Ihren Gewerbemietverträgen. Wir automatisieren die monatliche Fristenkontrolle und lösen den größten Arbeitsaufwand im Gewerbemanagement: die automatische VPI-Basisjahres-Umstellung.</p>
             <a href="#" class="btn btn-primary btn-large">Kostenlos testen</a>
-            <p class="small-text">Keine Kreditkarte erforderlich. 14 Tage kostenfrei.</p>
+            <p class="small-text">Jetzt für die kostenlose Pilotphase bewerben</p>
         </div>
     </section>
 
@@ -44,8 +51,8 @@
                 </div>
                 <div class="feature-card">
                     <h3>Automatische Anpassung der Mietverträge</h3>
-                    <p>Indexly passt deine Mietverträge automatisch an die aktuellen gesetzlichen Vorgaben und Vereinbarungen an und sendet sie rechtzeitig zur Unterschrift an den Mieter.</p>
-                </div>
+                    <p>Indexly passt deine Mietverträge automatisch an die aktuellen gesetzlichen Vorgaben und Vereinbarungen an </p>
+                    </div>
                 <div class="feature-card">
                     <h3>DSGVO Konform & Sicher</h3>
                     </h3>
@@ -79,6 +86,33 @@
             </div>
         </div>
     </footer>
+
+    <!-- Parallax script: leichtgewichtig, performant -->
+    <script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const layers = document.querySelectorAll('.parallax__layer');
+  if (!layers.length) return;
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.scrollY || window.pageYOffset;
+        layers.forEach(layer => {
+          const speed = parseFloat(layer.dataset.speed) || 0.2;
+          const y = scrolled * speed;
+          layer.style.transform = `translate3d(0, ${y}px, 0)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  // initial pos
+  onScroll();
+})();
+</script>
 
 </body>
 </html>
