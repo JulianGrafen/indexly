@@ -59,18 +59,33 @@
     <section id="features" class="section features">
       <div class="container">
         <h2>Alles auf einen Blick</h2>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>Automatische VPI‑Umstellung</h3>
-            <p>Wir übernehmen die Basisjahres‑Umstellung automatisch und schliessen manuelle Fehlerquellen aus.</p>
+        <div class="feature-grid" id="featureGrid">
+          <article class="feature-card" data-animate>
+            <div class="feature-icon" aria-hidden="true">
+              <!-- simple SVG icon -->
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 6h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.4"/></svg>
+            </div>
+            <h3 class="feature-title">Automatische VPI‑Umstellung</h3>
+            <p class="feature-desc">Automatischer Wechsel des Basisjahres — keine manuellen Fehler, sofort korrekt abgerechnet.</p>
+            <div class="feature-meta">Sicher • Vollautomatisch • Audit‑Trail</div>
           </article>
-          <article class="feature-card">
-            <h3>Echtzeit Überwachung</h3>
-            <p>Tägliche Checks und Benachrichtigungen bei kritischen Änderungen — sofort handeln.</p>
+
+          <article class="feature-card" data-animate>
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" opacity="0.9"/></svg>
+            </div>
+            <h3 class="feature-title">Echtzeit‑Überwachung</h3>
+            <p class="feature-desc">Tägliche Prüfungen mit Benachrichtigungen bei Abweichungen — reagieren, bevor es teuer wird.</p>
+            <div class="feature-meta">Alerts • Dashboards • Integrationen</div>
           </article>
-          <article class="feature-card feature-card--accent">
-            <h3>Maximierter ROI</h3>
-            <p>Weniger Verwaltungsaufwand, mehr Einnahmen — Ihre Betriebskosten sinken.</p>
+
+          <article class="feature-card" data-animate>
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M12 4v16" stroke="currentColor" stroke-width="1.6"/><path d="M4 12h16" stroke="currentColor" stroke-width="1.6" opacity="0.8"/></svg>
+            </div>
+            <h3 class="feature-title">Maximierter ROI</h3>
+            <p class="feature-desc">Weniger Verwaltungsaufwand, bessere Abrechnungen — sofort sichtbare Erträge.</p>
+            <div class="feature-meta">Skalierbar • Messbar • Transparent</div>
           </article>
         </div>
       </div>
@@ -130,8 +145,14 @@
         <nav class="footer-nav">
           <a href="#features">Features</a>
           <a href="#kontakt">Kontakt</a>
-          <a href="#">Impressum</a>
+          <a href="#impressum">Impressum</a>
         </nav>
+      </div>
+
+      <!-- compact impressum block -->
+      <div class="footer-legal" id="impressum" style="margin-top:12px;">
+        <p class="legal-line">Indexly GmbH • Musterstraße 12 • 10115 Musterstadt</p>
+        <p class="legal-line">E‑Mail: <a href="mailto:kontakt@indexly.eu">kontakt@indexly.eu</a> • Handelsregister: HRB 000000 • USt‑ID: DE000000000</p>
       </div>
     </div>
   </footer>
@@ -189,6 +210,25 @@
     // Use location.href so mobile opens mail client — long messages may be truncated by URL limits
     window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
   });
+
+  // Reveal animations for feature-cards (mobile friendly + reduced motion safe)
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const cards = document.querySelectorAll('[data-animate]');
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach(c => c.classList.add('reveal'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('reveal');
+          o.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.18 });
+    cards.forEach(c => obs.observe(c));
+  })();
   </script>
 </body>
 </html>
