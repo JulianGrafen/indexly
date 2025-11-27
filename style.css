@@ -317,3 +317,83 @@ a:focus,button:focus{
 
 /* micro-interactions */
 a,button{transition: all .16s cubic-bezier(.2,.9,.2,1)}
+
+/* mobile / small screens improvements */
+.nav-toggle{
+    display:none;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.04);
+    padding:8px 10px;
+    border-radius:10px;
+    color:var(--text);
+    cursor:pointer;
+    align-items:center;
+    gap:8px;
+    font-weight:700;
+}
+
+/* keep header compact on mobile and allow nav overlay */
+@media (max-width: 980px){
+    .header{
+        top:12px;
+        padding:8px;
+    }
+    .header .container{
+        gap:12px;
+    }
+
+    /* show toggle and hide desktop nav by default */
+    .nav{ display:none; position:absolute; right:16px; top:calc(100% + 10px); flex-direction:column;
+          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+          padding:12px; border-radius:12px; box-shadow:0 10px 40px rgba(2,6,23,0.55);
+          border:1px solid rgba(255,255,255,0.03); min-width:200px; }
+    .nav .nav-item{ padding:10px 12px; display:block; color:var(--text); background:transparent; margin:6px 0; border-radius:8px; }
+    .nav .nav-item:hover{ transform:none; background: rgba(255,255,255,0.02); color:var(--text); }
+
+    .nav-toggle{ display:inline-flex; margin-left:auto; }
+
+    /* header + state to show menu */
+    .header.nav-open .nav{ display:flex; }
+
+    /* Hero: tighter spacing and responsive text */
+    .hero{
+        padding:72px 0 34px;
+        min-height:56vh;
+    }
+    .hero h1{
+        font-size: clamp(1.6rem, 6.4vw, 2.6rem);
+        line-height:1.04;
+        max-width:92%;
+    }
+    .subtitle{ max-width:92%; font-size:0.96rem; }
+
+    /* features: 2 -> 1 columns for smaller phones */
+    .feature-grid{ grid-template-columns: repeat(1, 1fr); gap:14px; }
+    .feature-card{ padding:16px; border-radius:12px; }
+
+    /* contact form & buttons full width */
+    .btn-large, .btn-primary{ width:100%; justify-content:center; padding:12px 14px; }
+}
+
+/* extra small screens refinement */
+@media (max-width: 480px) {
+    .hero{ padding-top:56px; padding-bottom:28px; }
+    .logo{ font-size:1rem; }
+    .header .container{ padding-inline:12px; }
+    .hero h1{ font-size: clamp(1.4rem, 7.8vw, 2.1rem); }
+    .subtitle{ font-size:0.92rem; }
+}
+
+/* ensure parallax disabled on small devices (redundant safety) */
+@media (max-width: 980px){
+    .parallax, .parallax__layer{ display:none !important; }
+}
+
+/* reduce heavy shadows & animations on small screens for perf */
+@media (max-width: 640px){
+    :root{ --shadow-lg: 0 6px 18px rgba(2,6,23,0.35); --shadow-sm: 0 4px 12px rgba(2,6,23,0.28); }
+    .feature-card:hover{ transform:none; box-shadow: 0 8px 24px rgba(2,6,23,0.35); }
+}
+
+/* keep no horizontal scroll */
+html, body { max-width:100%; overflow-x:hidden; }

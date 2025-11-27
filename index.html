@@ -8,14 +8,21 @@
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" id="site-header">
         <div class="container">
             <a href="#" class="logo">Indexly</a>
-            <nav class="nav">
-                <a href="#features" class="nav-item">Features</a>
-                <a href="#pricing" class="nav-item">Preise</a>
+
+            <!-- mobile toggle -->
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Menü">
+                ☰ Menü
+            </button>
+
+            <nav class="nav" id="siteNav" aria-hidden="true">
+                <a href="#features" class="nav-item">Alles auf einen Blick</a>
                 <a href="#überuns" class="nav-item">Über uns</a>
+                <a href="#kontakt" class="nav-item">Kontakt</a>
             </nav>
+
             <a href="#" class="btn btn-primary">Jetzt starten</a>
         </div>
     </header>
@@ -112,6 +119,34 @@
   // initial pos
   onScroll();
 })();
+</script>
+
+<!-- add small accessible nav toggle script near the end of body -->
+<script>
+  (function(){
+    const toggle = document.getElementById('navToggle');
+    const header = document.getElementById('site-header');
+    const nav = document.getElementById('siteNav');
+
+    function setOpen(open){
+      toggle.setAttribute('aria-expanded', String(Boolean(open)));
+      nav.setAttribute('aria-hidden', String(!open));
+      header.classList.toggle('nav-open', Boolean(open));
+      // trap body scroll when open (mobile UX)
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    toggle?.addEventListener('click', ()=> {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      setOpen(!isOpen);
+    });
+
+    // close on outside click / resize
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target) && header.classList.contains('nav-open')) setOpen(false);
+    });
+    window.addEventListener('resize', ()=> setOpen(false));
+  })();
 </script>
 
 </body>
