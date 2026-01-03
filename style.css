@@ -150,9 +150,20 @@ body.nav-open .nav-mobile{display:flex}
 .post-list h2{margin:0 0 10px 0;font-size:1.25rem}
 .post-excerpt{color:var(--muted);margin-top:8px;margin-bottom:0}
 .post-content{max-width:780px}
-.post-content p{margin:0 0 1.5rem 0;line-height:1.7;color:var(--text)}
+.post-content p{margin:0 0 2rem 0;line-height:1.85;color:var(--text);font-size:1.05rem}
+.post-content p + p{margin-top:1rem}
 .post-tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
 .post-tags .tag{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-size:0.85rem;color:var(--muted)}
+
+/* post article card */
+.post-article{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:clamp(20px,4vw,40px);border-radius:16px;max-width:980px;margin:18px auto;box-shadow:var(--shadow-soft)}
+.post-article .post-meta{margin-bottom:14px;color:var(--muted)}
+.post-article h1{font-size:clamp(1.8rem,4.6vw,2.6rem);margin:0 0 10px 0;line-height:1.06}
+.post-article h2{font-size:clamp(1.15rem,3.2vw,1.4rem);margin-top:1.2rem;margin-bottom:0.6rem}
+.post-article p{margin:0 0 1.9rem 0;line-height:1.9;font-size:1.05rem;color:var(--text)}
+.post-article ul, .post-article ol{margin:0 0 1.6rem 1.25rem}
+.post-article details{margin-bottom:1rem}
+
 @media (min-width:900px){
   .post-list{grid-template-columns:repeat(2,1fr)}
 }
