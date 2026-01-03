@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Indexly — Nie wieder VPI bedingte Mietpreiserhöhungen verpassen.</title>
+  <title>Indexly — Rechtssichere Gerüst-Dokumentation in 30 Sekunden</title>
   <meta name="description" content="Indexly überwacht Gewerbemietverträge und schützt vor VPI-Fehlern.">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,7 +16,6 @@
         <a class="nav-link" href="#features">Alles auf einen Blick</a>
         <a class="nav-link" href="#überuns">Über uns</a>
         <a class="nav-link" href="#kontakt">Kontakt</a>
-        <button class="btn btn-mobile" id="mobileMenuToggle">Menu</button>
       </nav>
 
     </div>
@@ -31,29 +30,11 @@
     </div>
   </header>
 
-  <script>
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-
-    mobileMenuToggle.addEventListener('click', () => {
-      const isHidden = mobileNav.getAttribute('aria-hidden') === 'true';
-      mobileNav.setAttribute('aria-hidden', !isHidden);
-      mobileNav.style.display = isHidden ? 'block' : 'none';
-    });
-
-    document.querySelectorAll('[data-close]').forEach(item => {
-      item.addEventListener('click', () => {
-        mobileNav.setAttribute('aria-hidden', 'true');
-        mobileNav.style.display = 'none';
-      });
-    });
-  </script>
-
   <main>
     <section id="hero" class="hero section">
       <div class="container hero-inner">
-        <h1 class="hero-title">Nie wieder VPI‑bedingte Mietpreiserhöhungen verpassen.</h1>
-        <p class="subtitle">Indexly überwacht Ihre Gewerbemietverträge automatisch, stellt VPI‑Basisjahre um und sorgt für maximale Einnahmen <br> — ohne manuellen Aufwand.</p>
+        <h1 class="hero-title">Rechtssichere Gerüst-Dokumentation in 30 Sekunden – mit automatischem Wetter-Beweis..</h1>
+        <p class="subtitle">Erfüllen Sie die TRBS 2121-Pflicht ohne Zettelwirtschaft und schützen Sie sich lückenlos bei Haftungsfragen. <br> — ohne manuellen Aufwand.</p>
 
         <div class="hero-cta">
           <a class="btn btn-primary btn-large" href="#">5 Pilotkunden gesucht - jetzt kostenfrei testen.</a>
