@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog — Indexly</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="/">Indexly</a>
+
+      <nav class="nav-desktop" aria-label="Hauptnavigation">
+        <a class="nav-link" href="/#funktionen">Funktionen</a> <a class="nav-link" href="/#vorteile">Vorteile</a>
+        <a class="nav-link" href="/#faq">Häufige Fragen</a>
+        <a class="nav-link" href="/#kontakt">Kontakt</a>
+        <a class="nav-link" href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Blog</h1>
+        <div id="posts" class="post-list">
+          <p class="small-note">Beiträge werden geladen …</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Lade posts.json und rendere die Liste
+    fetch('posts.json')
+      .then(res => {
+        if (!res.ok) throw new Error('posts.json nicht gefunden');
+        return res.json();
+      })
+      .then(posts => {
+        const container = document.getElementById('posts');
+        container.innerHTML = '';
+        posts.forEach(p => {
+          const article = document.createElement('article');
+          article.innerHTML = `
+            <h2><a href="${p.url}">${p.title}</a></h2>
+            <p class="post-meta">${p.date} — ${p.author || 'Indexly'}</p>
+            <p class="post-excerpt">${p.excerpt}</p>
+          `;
+          container.appendChild(article);
+        });
+      })
+      .catch(err => {
+        document.getElementById('posts').innerHTML = '<p class="small-note">Fehler beim Laden der Beiträge.</p>';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
