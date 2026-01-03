@@ -17,6 +17,21 @@
         <a class="nav-link" href="/#kontakt">Kontakt</a>
         <a class="nav-link" href="/blog/">Blog</a>
       </nav>
+
+      <button id="navOpenBtn" class="nav-toggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">☰</button>
+
+      <div class="nav-mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="nav-mobile-inner">
+          <button id="navCloseBtn" class="nav-close" aria-label="Schließen">Schließen</button>
+          <nav class="mobile-links">
+            <a class="nav-link" href="/#funktionen">Funktionen</a>
+            <a class="nav-link" href="/#vorteile">Vorteile</a>
+            <a class="nav-link" href="/#faq">Häufige Fragen</a>
+            <a class="nav-link" href="/#kontakt">Kontakt</a>
+            <a class="nav-link" href="/blog/">Blog</a>
+          </nav>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -56,5 +71,21 @@
         console.error(err);
       });
   </script>
+
+  <script>
+    (function(){
+      const openBtn = document.getElementById('navOpenBtn');
+      const closeBtn = document.getElementById('navCloseBtn');
+      const mobile = document.getElementById('mobileMenu');
+      function open(){ document.body.classList.add('nav-open'); mobile.setAttribute('aria-hidden','false'); openBtn?.setAttribute('aria-expanded','true'); closeBtn?.focus(); }
+      function close(){ document.body.classList.remove('nav-open'); mobile.setAttribute('aria-hidden','true'); openBtn?.setAttribute('aria-expanded','false'); openBtn?.focus(); }
+      openBtn?.addEventListener('click', open);
+      closeBtn?.addEventListener('click', close);
+      document.querySelectorAll('.nav-mobile .nav-link').forEach(a=>a.addEventListener('click', close));
+      document.addEventListener('keydown', e=>{ if(e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>
 </body>
 </html>

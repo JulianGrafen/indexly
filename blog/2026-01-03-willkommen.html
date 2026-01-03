@@ -17,6 +17,22 @@
         <a class="nav-link" href="/#kontakt">Kontakt</a>
         <a class="nav-link" href="/blog/">Blog</a>
       </nav>
+
+      <button id="navOpenBtn" class="nav-toggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">☰</button>
+
+      <div class="nav-mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="nav-mobile-inner">
+          <button id="navCloseBtn" class="nav-close" aria-label="Schließen">Schließen</button>
+          <nav class="mobile-links">
+            <a class="nav-link" href="/#funktionen">Funktionen</a>
+            <a class="nav-link" href="/#vorteile">Vorteile</a>
+            <a class="nav-link" href="/#faq">Häufige Fragen</a>
+            <a class="nav-link" href="/#kontakt">Kontakt</a>
+            <a class="nav-link" href="/blog/">Blog</a>
+          </nav>
+          <p class="nav-note small-note">Tippe einen Link an, um das Menü zu schließen.</p>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -33,5 +49,32 @@
       </div>
     </section>
   </main>
+
+  <script>
+    (function(){
+      const mobile = document.getElementById('mobileMenu');
+      const toggles = document.querySelectorAll('.nav-toggle');
+      const openBtn = toggles[0];
+      const closeBtn = mobile ? mobile.querySelector('.nav-toggle') : null;
+
+      function setOpen(open){
+        document.body.classList.toggle('nav-open', open);
+        if(mobile) mobile.setAttribute('aria-hidden', String(!open));
+        toggles.forEach(t=>t.setAttribute('aria-expanded', String(open)));
+        if(open){
+          if(mobile) mobile.querySelector('.nav-mobile-inner')?.scrollTo(0,0);
+          closeBtn?.focus();
+        } else {
+          openBtn?.focus();
+        }
+      }
+
+      toggles.forEach(t=>t.addEventListener('click', (e)=>{ e.preventDefault(); setOpen(!document.body.classList.contains('nav-open')); }));
+      document.querySelectorAll('.nav-mobile .nav-link').forEach(a=>a.addEventListener('click', ()=>setOpen(false)));
+      if(mobile) mobile.addEventListener('click', (e)=>{ if(e.target === mobile) setOpen(false); });
+
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && document.body.classList.contains('nav-open')) setOpen(false); });
+    })();
+  </script>
 </body>
 </html>
