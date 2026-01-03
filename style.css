@@ -42,11 +42,11 @@ body{
 .nav-link:hover{color:var(--text);background:rgba(255,255,255,0.02)}
 .nav-toggle{margin-left:auto;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px;color:var(--text);cursor:pointer}
 /* ensure hamburger is visible on light header backgrounds */
-.header-inner .nav-toggle{color:#061022;background:rgba(255,255,255,0.03);border:1px solid rgba(6,16,34,0.06)}
+.header-inner .nav-toggle{color:#ffffff;background:linear-gradient(90deg,var(--accent-a),var(--accent-b));border:0;padding:8px;border-radius:8px}
 .header-inner .nav-toggle:focus{outline:2px solid rgba(124,92,255,0.18)}
 
 /* simple mobile menu (visible overlay + blue panel) */
-.nav-mobile{display:none;position:fixed;inset:0;z-index:999;background:hsl(219, 70%, 8%);align-items:flex-start}
+.nav-mobile{display:none;position:fixed;inset:0;z-index:999;background:hsl(0, 0%, 100%);align-items:flex-start}
 body.nav-open{overflow:hidden}
 body.nav-open .nav-mobile{display:flex}
 .nav-mobile-inner{width:100%;max-width:420px;height:100vh;margin-left:auto;padding:20px;background:hsl(219, 70%, 8%);color:#061022;overflow:auto;box-shadow:0 12px 40px rgba(2,6,23,0.45);display:flex;flex-direction:column;gap:14px;border-left:6px solid rgba(124,92,255,0.12)}
