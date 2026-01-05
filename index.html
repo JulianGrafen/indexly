@@ -73,9 +73,11 @@
       <a class="logo" href="#">Indexly</a>
 
       <nav class="nav-desktop" aria-label="Hauptnavigation">
-        <a class="nav-link" href="/#funktionen">Funktionen</a> <a class="nav-link" href="/#vorteile">Vorteile</a>
+ <a class="nav-link" href="/#vorteile">Vorteile</a>
         <a class="nav-link" href="/#faq">Häufige Fragen</a>
         <a class="nav-link" href="/#kontakt">Kontakt</a>
+                    <a class="nav-link" href="/pricing">Preise</a>
+
         <a class="nav-link" href="/blog/">Blog</a>
       </nav>
 
@@ -85,8 +87,7 @@
         <div class="nav-mobile-inner">
           <button id="navCloseBtn" class="nav-close" aria-label="Schließen">Schließen</button>
           <nav class="mobile-links">
-            <a class="nav-link" href="/#funktionen">Funktionen</a>
-            <a class="nav-link" href="/#vorteile">Vorteile</a>
+            <a class="nav-link" href="/pricing">Preise</a>
             <a class="nav-link" href="/#faq">Häufige Fragen</a>
             <a class="nav-link" href="/#kontakt">Kontakt</a>
             <a class="nav-link" href="/blog/">Blog</a>
@@ -166,15 +167,25 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-legal" id="impressum" itemscope itemtype="https://schema.org/LocalBusiness">
-        <p itemprop="name">Indexly</p>
-        <p itemprop="founder">Julian Gräfen</p>
-        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-          <p itemprop="streetAddress">Pfarrer-Reinartz-Str. 11</p>
-          <p><span itemprop="postalCode">53925</span> <span itemprop="addressLocality">Kall</span></p>
-          <p>USt-IdNr. : DE 369543245</p>
+      <div class="footer-inner">
+        <div class="footer-legal" id="impressum" itemscope itemtype="https://schema.org/LocalBusiness">
+          <p itemprop="name">Indexly</p>
+          <p itemprop="founder">Julian Gräfen</p>
+          <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <p itemprop="streetAddress">Pfarrer-Reinartz-Str. 11</p>
+            <p><span itemprop="postalCode">53925</span> <span itemprop="addressLocality">Kall</span></p>
+            <p>USt-IdNr. : DE 369543245</p>
+          </div>
+         <p>E‑Mail: <a href="mailto:kontakt@indexly.eu" itemprop="email">kontakt@indexly.eu</a></p>
         </div>
-     <p>E‑Mail: <a href="mailto:kontakt@indexly.eu" itemprop="email">kontakt@indexly.eu</a></p>
+
+        <div class="footer-actions">
+          <div class="footer-social" aria-label="Social links">
+            <a class="social-btn" href="https://www.linkedin.com/company/indexlybau" target="_blank" rel="noopener noreferrer" aria-label="Indexly auf LinkedIn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1 4.98 2.12 4.98 3.5zM0 8.5h5V24H0V8.5zM8.5 8.5h4.78v2.06h.07c.67-1.26 2.31-2.59 4.75-2.59 5.08 0 6.02 3.34 6.02 7.68V24h-5V15.1c0-2.1-.04-4.8-2.92-4.8-2.92 0-3.37 2.28-3.37 4.64V24h-5V8.5z"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
