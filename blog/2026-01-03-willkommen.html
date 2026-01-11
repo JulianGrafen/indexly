@@ -30,7 +30,6 @@
             <a class="nav-link" href="/#kontakt">Kontakt</a>
             <a class="nav-link" href="/blog/">Blog</a>
           </nav>
-          <p class="nav-note small-note">Tippe einen Link an, um das Menü zu schließen.</p>
         </div>
       </div>
     </div>
@@ -54,28 +53,15 @@
 
   <script>
     (function(){
+      const openBtn = document.getElementById('navOpenBtn');
+      const closeBtn = document.getElementById('navCloseBtn');
       const mobile = document.getElementById('mobileMenu');
-      const toggles = document.querySelectorAll('.nav-toggle');
-      const openBtn = toggles[0];
-      const closeBtn = mobile ? mobile.querySelector('.nav-toggle') : null;
-
-      function setOpen(open){
-        document.body.classList.toggle('nav-open', open);
-        if(mobile) mobile.setAttribute('aria-hidden', String(!open));
-        toggles.forEach(t=>t.setAttribute('aria-expanded', String(open)));
-        if(open){
-          if(mobile) mobile.querySelector('.nav-mobile-inner')?.scrollTo(0,0);
-          closeBtn?.focus();
-        } else {
-          openBtn?.focus();
-        }
-      }
-
-      toggles.forEach(t=>t.addEventListener('click', (e)=>{ e.preventDefault(); setOpen(!document.body.classList.contains('nav-open')); }));
-      document.querySelectorAll('.nav-mobile .nav-link').forEach(a=>a.addEventListener('click', ()=>setOpen(false)));
-      if(mobile) mobile.addEventListener('click', (e)=>{ if(e.target === mobile) setOpen(false); });
-
-      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && document.body.classList.contains('nav-open')) setOpen(false); });
+      function open(){ document.body.classList.add('nav-open'); mobile.setAttribute('aria-hidden','false'); openBtn?.setAttribute('aria-expanded','true'); closeBtn?.focus(); }
+      function close(){ document.body.classList.remove('nav-open'); mobile.setAttribute('aria-hidden','true'); openBtn?.setAttribute('aria-expanded','false'); openBtn?.focus(); }
+      openBtn?.addEventListener('click', open);
+      closeBtn?.addEventListener('click', close);
+      document.querySelectorAll('.nav-mobile .nav-link').forEach(a=>a.addEventListener('click', close));
+      document.addEventListener('keydown', e=>{ if(e.key === 'Escape') close(); });
     })();
   </script>
 </body>
